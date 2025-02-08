@@ -79,14 +79,14 @@ document.addEventListener('keydown', function(event) {
             sit = true;
         }
     }
-    if(event.key === 'ArrowLeft'){
-        if(sit == false)
+    if(event.key === 'ArrowLeft' ){
+        if(sit == false && leftPosition > -300)
         leftPosition -= 10; // Move 10 pixels to the left (adjust as needed)
         capybara.style.left = leftPosition + 'px';
     }
 
     if(event.key === 'ArrowRight'){
-        if(sit == false)
+        if(sit == false && leftPosition < 300)
         leftPosition += 10; // Move 10 pixels to the left (adjust as needed)
         capybara.style.left = leftPosition + 'px';
     }
