@@ -1,7 +1,9 @@
 var snd = new Audio("src/boom.mp3");
 let sleep = true;
 let sit = true
+let leftPosition = 0;
 let muted = false;
+let color = 0;
 
 function mute(img) {
     console.log("mute");
@@ -76,6 +78,28 @@ document.addEventListener('keydown', function(event) {
             sit = true;
         }
     }
+    if(event.key === 'ArrowLeft' ){
+        if(sit == false && leftPosition > -300)
+        leftPosition -= 10; // Move 10 pixels to the left (adjust as needed)
+        capybara.style.left = leftPosition + 'px';
+    }
+
+    if(event.key === 'ArrowRight'){
+        if(sit == false && leftPosition < 300)
+        leftPosition += 10; // Move 10 pixels to the left (adjust as needed)
+        capybara.style.left = leftPosition + 'px';
+    }
+
+    if(event.key === "c"){
+        if (color <= 360){
+            color += 30
+            console.log("Color: " + color)
+        }else{
+            color = 0
+        }
+        document.getElementById("capybara").style.filter =  `hue-rotate(${color}deg)`
+    }
+
 
 });
 

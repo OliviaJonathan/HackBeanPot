@@ -42,10 +42,14 @@ h1{
    display: flex;
    flex-direction: row;
 }
-#sound {
+#sound{
    width: 5%;
    height: 10%;
 }
+#capybara{
+   transition-delay: 0.5s;
+}
+
 #hats{
    position: absolute;
    display: flex;
