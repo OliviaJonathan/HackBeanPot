@@ -3,6 +3,7 @@ let sleep = true;
 let sit = true
 let leftPosition = 0;
 let muted = false;
+let color = 0;
 
 function mute(img) {
     console.log("mute");
@@ -13,7 +14,10 @@ function mute(img) {
         img.src = img.src.replace("src/unmute.png", "src/mute.png");
         muted = true;
     }
+
 }
+
+
 
 function awake(){
     // first time waking up capybara
@@ -59,8 +63,6 @@ capybara.addEventListener('click', function(){
 
 
 
-
-
 document.addEventListener('keydown', function(event) {
     // Log the key that was pressed
     console.log("Key pressed: " + event.key)
@@ -91,6 +93,16 @@ document.addEventListener('keydown', function(event) {
         capybara.style.left = leftPosition + 'px';
     }
 
+    if(event.key === "c"){
+        if (color <= 360){
+            color += 30
+            console.log("Color: " + color)
+        }else{
+            color = 0
+        }
+
+        document.getElementById("capybara").style.filter =  `hue-rotate(${color}deg)`
+    }
     
 
 });
