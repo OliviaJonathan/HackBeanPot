@@ -10,8 +10,7 @@ function awake(){
         sleep = false
     }
     // take out hint
-    document.getElementById("hint").innerHTML = "";
-    document.getElementById("hint").style = "padding: 3.6%";
+    document.getElementById("hint").innerHTML = "have fun!";
 }
 
 // FART FUNCTION
