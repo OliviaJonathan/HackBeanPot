@@ -1,5 +1,6 @@
 var snd = new Audio("src/boom.mp3");
 let sleep = true;
+let sit = true
 
 function awake(){
     // first time waking up capybara
@@ -54,11 +55,14 @@ document.addEventListener('keydown', function(event) {
     }
     // if s is clicked, capybara stands
     if(event.key === "s") {
-        document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybarastand.png");
-    }
-    if(event.key === "d")
-    {
-        document.getElementById("capybara").src = capybara.src.replace("src/capybarastand.png", "src/capybaraawake.png");
+        if(sit){
+            document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybarastand.png");
+            sit = false;
+        }else{
+            document.getElementById("capybara").src = capybara.src.replace("src/capybarastand.png", "src/capybaraawake.png");
+            sit = true;
+        }
     }
 
 });
+
