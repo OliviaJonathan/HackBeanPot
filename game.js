@@ -100,7 +100,6 @@ document.addEventListener('keydown', function(event) {
         }else{
             color = 0
         }
-
         document.getElementById("capybara").style.filter =  `hue-rotate(${color}deg)`
     }
     
