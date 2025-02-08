@@ -1,12 +1,27 @@
 var snd = new Audio("src/boom.mp3");
 let sleep = true;
 let sit = true
+let muted = false;
+
+function mute(img) {
+    console.log("mute");
+    if (muted) {
+        img.src = img.src.replace("src/mute.png", "src/unmute.png");
+        muted = false;
+    } else {
+        img.src = img.src.replace("src/unmute.png", "src/mute.png");
+        muted = true;
+    }
+}
 
 function awake(){
     // first time waking up capybara
     document.getElementById("capybara").src = capybara.src.replace("src/capybaraasleep.png", "src/capybaraawake.png");
     if (sleep) {
-        snd.play();
+        if(!muted){
+            snd.play();
+        }
+
         sleep = false
     }
     // take out hint
@@ -34,7 +49,9 @@ capybara.addEventListener('click', function(){
             // Reset time of audio
             sound.currentTime = 0;
             // Play the sound
-            sound.play();
+            if(!muted){
+                sound.play();
+            }
         }
 
         console.log("Fart");
