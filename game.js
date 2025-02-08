@@ -56,5 +56,9 @@ document.addEventListener('keydown', function(event) {
     if(event.key === "s") {
         document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybarastand.png");
     }
+    if(event.key === "d")
+    {
+        document.getElementById("capybara").src = capybara.src.replace("src/capybarastand.png", "src/capybaraawake.png");
+    }
 
 });
