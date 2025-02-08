@@ -20,22 +20,15 @@ main{
    justify-content: center;
 }
 .container{
-   height: 40vh;
-   width: 50vw;
-   background-color: #e1e0e0;
-   border-radius: 2vw;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   align-content: center;
-   /*position: relative; /* position items relative within the container*/
-}
-#capystart{
-   width: 100%;
-   border: solid 1px black;
+   height: 15vh;
+   width: 30vw;
    display: flex;
    align-items: center;
    justify-content: center;
+   padding: 15vh;
+   background-color: #e1e0e0;
+   border-radius: 2vw;
+   position: relative; /* position items relative within the container*/
 }
 h1{
    font-family: "Jersey 10", serif;
@@ -43,23 +36,56 @@ h1{
    color: #e1e0e0;
    font-weight: 300;
    text-align: center;
+   font-size: 4vw;
 }
-#hats {
-   display: inline-block;
+#bottom{
+   display: flex;
+   flex-direction: row;
+}
+#sound {
+   width: 5%;
+   height: 10%;
+}
+#hats{
+   position: absolute;
+   display: flex;
    flex-direction: column;
-   align-content: center;
-   position: fixed;
-   border: solid 1px purple;
+   padding: 0.5vw;
+   background-color: tan;
    width: 5%;
    height: 35vh;
    border-radius: 2vw;
+   top: 19.5vw;
+   left: 17vw;
 }
-/*floppy hat */
-#flhat{
-   height: 20px;
+ul{
+   height: 100%;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   line-height: 2vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+li{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.hat{
+   margin: 0;
+   padding: 0;
    cursor: pointer;
    position: relative;
 
-   top: 0;
-   left: 0;
+}
+/*floppy hat */
+#floppy, #orange, #santa{
+   height: 3vw;
+}
+#bday, #wig {
+   max-width: 4vw;
 }

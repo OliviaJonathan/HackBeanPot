@@ -10,18 +10,25 @@
         <main>
             <div id="view">
                 <h1>Capybara Game</h1>
+                <div id="hats">
+                    <ul>
+
+                        <li><button type="button" onclick="addHat()"><img class="hat" id="floppy" src="src/floppyhat.png" alt="floppy hat"></button></li>
+                        <li><button type="button" onclick="addHat()"><img class="hat" id="orange" src="src/orange.png" alt="orange hat"></button></li>
+                        <li><button type="button" onclick="addHat()"><img class="hat" id="santa" src="src/santahat.png" alt="santa hat"></button></li>
+                        <li><button type="button" onclick="addHat()"><img class="hat" id="bday" src="src/birthdayhat.png" alt="birthday hat"></button></li>
+                        <li><button type="button" onclick="addHat()"><img class="hat" id="wig" src="src/wig.png" alt="wig hat"></button></li>
+                    </ul>
+                </div>
                 <div class="container">
-                    <div id="hats">
-                        <img id="flhat" src="src/floppyhat.png" alt="floppy hat">
-                    </div>
-                    <div id="capystart">
-                        <img id="capybara" src="src/capybaraasleep.png" alt="Sleep" onclick="awake(this)">
-                    </div>
+                    <img id="capybara" src="src/capybaraasleep.png" alt="Sleep" onclick="awake(this)">
                 </div>
             </div>
             <audio id="fart" src="src/fart.mp3"></audio>
             <h1 id="hint">(Click on Capybara to wake them up)</h1>
+            <img id="sound" src="src/unmute.png" alt="sound" onclick="mute(this)">
         </main>
+        <footer></footer>
 <script src="game.js"></script>
 </body>
 </html>

@@ -1,16 +1,31 @@
 var snd = new Audio("src/boom.mp3");
 let sleep = true;
+let sit = true
+let muted = false;
+
+function mute(img) {
+    console.log("mute");
+    if (muted) {
+        img.src = img.src.replace("src/mute.png", "src/unmute.png");
+        muted = false;
+    } else {
+        img.src = img.src.replace("src/unmute.png", "src/mute.png");
+        muted = true;
+    }
+}
 
 function awake(){
     // first time waking up capybara
     document.getElementById("capybara").src = capybara.src.replace("src/capybaraasleep.png", "src/capybaraawake.png");
     if (sleep) {
-        snd.play();
+        if(!muted){
+            snd.play();
+        }
+
         sleep = false
     }
     // take out hint
-    document.getElementById("hint").innerHTML = "";
-    document.getElementById("hint").style = "padding: 3.6%";
+    document.getElementById("hint").innerHTML = "have fun!";
 }
 
 // FART FUNCTION
@@ -34,7 +49,9 @@ capybara.addEventListener('click', function(){
             // Reset time of audio
             sound.currentTime = 0;
             // Play the sound
-            sound.play();
+            if(!muted){
+                sound.play();
+            }
         }
 
         console.log("Fart");
@@ -49,32 +66,24 @@ document.addEventListener('keydown', function(event) {
     if(event.key === "z") {
         document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybaraasleep.png");
     }
+    // if s is clicked, capybara stands
+    if(event.key === "s") {
+        if(sit){
+            document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybarastand.png");
+            sit = false;
+        }else{
+            document.getElementById("capybara").src = capybara.src.replace("src/capybarastand.png", "src/capybaraawake.png");
+            sit = true;
+        }
+    }
 
 });
 
 // drag & drop
-let newX = 0, newY=0, startX=1000, startY=1000;
-const flhat = document.getElementById("flhat");
-flhat.addEventListener('mousedown', mouseDown)
-/* pick hat up */
-function mouseDown(e){
-    startX = e.clientX
-    startY = e.clientY
-    document.addEventListener('mousemove', mouseMove)
-    document.addEventListener('mouseup', mouseUp)
-}
-/* drag hat around */
-function mouseMove(e){
-    newX = startX - e.clientX;
-    newY = startY - e.clientY;
-    startX = e.clientX;
-    startY = e.clientY;
-    flhat.style.top = startY + 'px';
-    flhat.style.left = startX + 'px';
-    flhat.style.top = (flhat.offsetTop - 2*newY) +'px';
-    flhat.style.left = (flhat.offsetLeft - 2*newX) + 'px';
-}
-/* release hat @ new position */
-function mouseUp(e){
-    document.removeEventListener('mousemove', mouseMove);
+let newX = 0, newY=0;
+const hat = document.getElementById("floppy");
+/*hat adder*/
+function addHat(){
+
+
 }
