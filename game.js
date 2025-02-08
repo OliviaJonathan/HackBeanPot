@@ -1,10 +1,7 @@
 var snd = new Audio("src/boom.mp3");
 let sleep = true;
 let sit = true
-<<<<<<< HEAD
-=======
 let leftPosition = 0;
->>>>>>> efa427d (function to move left and right)
 let muted = false;
 
 function mute(img) {
@@ -81,14 +78,11 @@ document.addEventListener('keydown', function(event) {
             document.getElementById("capybara").src = capybara.src.replace("src/capybarastand.png", "src/capybaraawake.png");
             sit = true;
         }
-<<<<<<< HEAD
-=======
     }
     if(event.key === 'ArrowLeft'){
         if(sit == false)
         leftPosition -= 10; // Move 10 pixels to the left (adjust as needed)
         capybara.style.left = leftPosition + 'px';
->>>>>>> efa427d (function to move left and right)
     }
 
     if(event.key === 'ArrowRight'){
@@ -101,10 +95,3 @@ document.addEventListener('keydown', function(event) {
 
 });
 
-<<<<<<< HEAD
-=======
-
-
-  
-
->>>>>>> efa427d (function to move left and right)
