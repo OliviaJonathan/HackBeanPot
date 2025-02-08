@@ -21,7 +21,6 @@ function awake(){
         if(!muted){
             snd.play();
         }
-
         sleep = false
     }
     // take out hint
