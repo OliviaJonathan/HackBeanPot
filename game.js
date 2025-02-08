@@ -40,10 +40,7 @@ capybara.addEventListener('click', function(){
         console.log("Fart");
 })
 
-
-
-
-
+// Go back to sleep
 document.addEventListener('keydown', function(event) {
     // Log the key that was pressed
     console.log("Key pressed: " + event.key)
@@ -54,3 +51,30 @@ document.addEventListener('keydown', function(event) {
     }
 
 });
+
+// drag & drop
+let newX = 0, newY=0, startX=1000, startY=1000;
+const flhat = document.getElementById("flhat");
+flhat.addEventListener('mousedown', mouseDown)
+/* pick hat up */
+function mouseDown(e){
+    startX = e.clientX
+    startY = e.clientY
+    document.addEventListener('mousemove', mouseMove)
+    document.addEventListener('mouseup', mouseUp)
+}
+/* drag hat around */
+function mouseMove(e){
+    newX = startX - e.clientX;
+    newY = startY - e.clientY;
+    startX = e.clientX;
+    startY = e.clientY;
+    flhat.style.top = startY + 'px';
+    flhat.style.left = startX + 'px';
+    flhat.style.top = (flhat.offsetTop - 2*newY) +'px';
+    flhat.style.left = (flhat.offsetLeft - 2*newX) + 'px';
+}
+/* release hat @ new position */
+function mouseUp(e){
+    document.removeEventListener('mousemove', mouseMove);
+}
