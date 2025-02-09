@@ -1,4 +1,6 @@
-var snd = new Audio("src/boom.mp3");
+const capybara = document.getElementById('capybara');
+const sound = document.getElementById('fart');
+const snd = new Audio("src/boom.mp3");
 let sleep = true;
 let sit = true;
 let leftPosition = 0;
@@ -10,24 +12,24 @@ function mute(img) {
     img.src = muted ? "src/mute.png" : "src/unmute.png";
 }
 
-
-
 function awake() {
     capybara.src = capybara.src.replace("src/capybaraasleep.png", "src/capybaraawake.png");
     if (sleep) {
         if (!muted) snd.play();
         sleep = false;
     }
-    // take out hint
     document.getElementById("hint").innerHTML = "have fun!";
 }
-
+// fart!
 capybara.addEventListener('click', function(event) {
     const imageRect = capybara.getBoundingClientRect();
     const clickX = event.clientX - imageRect.left;
     const clickY = event.clientY - imageRect.top;
 
-    const clickArea = { x: 80, y: 100, width: 30, height: 20 };
+    let clickArea = { x: 80, y: 100, width: 30, height: 20 };
+    if (position === "Right") {
+        clickArea = { x: 20, y: 100, width: 20, height: 20 };
+    }
 
     if (clickX >= clickArea.x && clickX <= clickArea.x + clickArea.width &&
         clickY >= clickArea.y && clickY <= clickArea.y + clickArea.height) {
@@ -35,7 +37,8 @@ capybara.addEventListener('click', function(event) {
         if (!muted) sound.play();
     }
 });
-
+// sleep, stand, movement, color change
+let position = "Left"; // default capy position faces right
 document.addEventListener('keydown', function(event) {
     if (event.key === "z") {
         capybara.src = capybara.src.replace("src/capybaraawake.png", "src/capybaraasleep.png");
@@ -47,24 +50,24 @@ document.addEventListener('keydown', function(event) {
         leftPosition -= 10;
         capybara.style.left = leftPosition + 'px';
         capybara.style.transform = "scaleX(1)";
+        position = "Left";
     } else if (event.key === 'ArrowRight' && !sit && leftPosition < 300) {
         leftPosition += 10;
         capybara.style.left = leftPosition + 'px';
         capybara.style.transform = "scaleX(-1)";
+        position = "Right";
     } else if (/^[0-9]$/i.test(event.key)) {
         color = event.key * 36;
         capybara.style.filter = `hue-rotate(${color}deg)`;
     }
 });
 
-
-// Make the DIV element draggable:
-//dragElement(document.getElementById("floppy"));
 // Apply dragElement to each element with class "hat"
 document.querySelectorAll('.hat').forEach(function (el) {
     dragElement(el);
 });
 
+// drag hats
 function dragElement(elmnt) {
 
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
