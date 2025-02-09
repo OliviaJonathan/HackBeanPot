@@ -82,7 +82,7 @@ document.addEventListener('keydown', function(event) {
         }
     }
     if(event.key === 'ArrowLeft' ){
-        if(sit == false && leftPosition > -300)
+        if(sit === false && leftPosition > -300)
         leftPosition -= 10; // Move 10 pixels to the left (adjust as needed)
         capybara.style.left = leftPosition + 'px';
     }
@@ -93,7 +93,7 @@ document.addEventListener('keydown', function(event) {
         capybara.style.left = leftPosition + 'px';
     }
 
-    if(isNumber = /^[0-9]$/i.test(event.key)){
+    if(/^[0-9]$/i.test(event.key)){
         color = event.key * 36;
         document.getElementById("capybara").style.filter =  `hue-rotate(${color}deg)`
     }
