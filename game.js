@@ -70,9 +70,7 @@ document.addEventListener('keydown', function(event) {
     // if z is clicked, capybara goes to sleep
     if(event.key === "z") {
         document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybaraasleep.png");
-    }
-    // if s is clicked, capybara stands
-    if(event.key === "s") {
+    }else if(event.key === "s") {
         if(sit){
             document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybarastand.png");
             sit = false;
@@ -80,20 +78,15 @@ document.addEventListener('keydown', function(event) {
             document.getElementById("capybara").src = capybara.src.replace("src/capybarastand.png", "src/capybaraawake.png");
             sit = true;
         }
-    }
-    if(event.key === 'ArrowLeft' ){
+    }else if(event.key === 'ArrowLeft' ){
         if(sit === false && leftPosition > -300)
         leftPosition -= 10; // Move 10 pixels to the left (adjust as needed)
         capybara.style.left = leftPosition + 'px';
-    }
-
-    if(event.key === 'ArrowRight'){
-        if(sit == false && leftPosition < 300)
+    }else if(event.key === 'ArrowRight'){
+        if(sit === false && leftPosition < 300)
         leftPosition += 10; // Move 10 pixels to the left (adjust as needed)
         capybara.style.left = leftPosition + 'px';
-    }
-
-    if(/^[0-9]$/i.test(event.key)){
+    }else if(/^[0-9]$/i.test(event.key)){
         color = event.key * 36;
         document.getElementById("capybara").style.filter =  `hue-rotate(${color}deg)`
     }
