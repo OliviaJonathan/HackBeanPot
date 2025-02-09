@@ -4,9 +4,11 @@ const snd = new Audio("src/boom.mp3");
 const runSound = new Audio("src/run.mp3");
 let sleep = true;
 let sit = true;
+let iswalking = false;
 let leftPosition = 0;
 let muted = false;
 let color = 0;
+let count = 1;
 
 function mute(img) {
     muted = !muted;
@@ -46,11 +48,16 @@ document.addEventListener('keydown', function(event) {
     } else if (event.key === "s") {
         const newSrc = sit ? "src/capybarastand.png" : "src/capybaraawake.png";
         capybara.src = capybara.src.replace(sit ? "src/capybaraawake.png" : "src/capybarastand.png", newSrc);
+        if (iswalking){
+            capybara.src = capybara.src.replace( "src/capybarawalkingleft(2).png","src/capybaraawake.png" );
+            capybara.src = capybara.src.replace( "src/capybarawalkingleft(1).png","src/capybaraawake.png" );
+        }
         sit = !sit;
     } else if (event.key === 'ArrowLeft' && !sit && leftPosition > -300) {
+        makeWalk();
+        capybara.style.transform = "scaleX(1)";
         leftPosition -= 10;
         capybara.style.left = leftPosition + 'px';
-        capybara.style.transform = "scaleX(1)";
         position = "Left";
         if (!muted) {
             runSound.playbackRate += 0.2;
@@ -59,7 +66,8 @@ document.addEventListener('keydown', function(event) {
 
         }
     } else if (event.key === 'ArrowRight' && !sit && leftPosition < 300) {
-        leftPosition += 10;
+       makeWalk();
+       leftPosition += 10;
         capybara.style.left = leftPosition + 'px';
         capybara.style.transform = "scaleX(-1)";
         position = "Right";
@@ -73,6 +81,19 @@ document.addEventListener('keydown', function(event) {
         capybara.style.filter = `hue-rotate(${color}deg)`;
     }
 });
+
+//walking function 
+function makeWalk(){
+    iswalking = true;
+    if(count == 1){
+        capybara.src = capybara.src.replace("src/capybarastand.png", "src/capybarawalkingleft(2).png");
+        capybara.src = capybara.src.replace( "src/capybarawalkingleft(1).png","src/capybarawalkingleft(2).png" );
+
+        count--;}
+        else if(count == 0){
+        capybara.src = capybara.src.replace( "src/capybarawalkingleft(2).png","src/capybarawalkingleft(1).png" );
+        count++; }  
+}
 
 // Apply dragElement to each element with class "hat"
 document.querySelectorAll('.hat').forEach(function (el) {
