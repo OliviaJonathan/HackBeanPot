@@ -131,7 +131,7 @@ h2{
 #hats ul{
    height: 100%;
    list-style: none;
-   margin: 0;
+   margin-right: 0;
    padding: 0;
    line-height: 2vh;
    display: flex;
@@ -144,20 +144,33 @@ h2{
    display: flex;
    align-items: center;
    justify-content: center;
+   margin: 4vh 0;
+}
+#list2 {
+   position: absolute;
+   top: 0;
+   right: 0;
+   margin-left: 4vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }
 .hat{
-   margin: 0;
    padding: 0;
    cursor: pointer;
    position: absolute;
-   width: 4vw;
-}
-/*floppy hat */
-#floppy, #orange, #santa, #bday{
+   width: 3vw;
    z-index: 5;
 }
+#frog, #chef, #lettuce, #top{
+   width: 4vw;
+}
+
 #wig{
    z-index: 4;
+}
+#chef{
+   z-index: 1;
 }
 
 #poo{

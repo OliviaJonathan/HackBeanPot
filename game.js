@@ -132,8 +132,11 @@ function dragElement(elmnt) {
     }
 
     function dragMouseDown(e) {
-        if (elmnt.id === "wig"){
+        if (elmnt.id === "wig" || elmnt.id === "frog") {
             elmnt.style.width = "10vw";
+        }
+        else if(elmnt.id === "lettuce" || elmnt.id === "chef"){
+            elmnt.style.width = "7vw";
         }
         e = e || window.event;
         e.preventDefault();
@@ -170,14 +173,6 @@ function dragElement(elmnt) {
     }
 }
 
-/* to help with finding coordinates of div*/
-const coordinatesDiv = document.getElementById('coordinates');
-
-document.addEventListener('mousemove', function(event) {
-    const x = event.clientX;
-    const y = event.clientY;
-    coordinatesDiv.textContent = `Mouse X: ${x}, Mouse Y: ${y}`;
-});
 // Get the modal
 var modal = document.getElementById("myModal");
 
