@@ -10,10 +10,11 @@ let muted = false;
 let color = 0;
 let count = 1;
 
+// switch btwn bgs
 let i = 2;
 function switchBg(img){
     document.getElementById("container").style.backgroundImage = `url(src/bg${i}.jpg)`;
-    i = (i % 4) + 1;
+    i = (i % 7) + 1;
 }
 
 function mute(img) {
