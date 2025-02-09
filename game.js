@@ -8,6 +8,12 @@ let leftPosition = 0;
 let muted = false;
 let color = 0;
 
+let i = 2;
+function switchBg(img){
+    document.getElementById("container").style.backgroundImage = `url(src/bg${i}.jpg)`;
+    i = (i % 4) + 1;
+}
+
 function mute(img) {
     muted = !muted;
     img.src = muted ? "src/mute.png" : "src/unmute.png";
@@ -22,8 +28,7 @@ function awake() {
     document.getElementById("hint").innerHTML = "have fun!";
 }
 // fart!
-let
-    overlay=1;
+let overlay=1;
 capybara.addEventListener('click', function(event) {
     const imageRect = capybara.getBoundingClientRect();
     const clickX = event.clientX - imageRect.left;
@@ -39,13 +44,16 @@ capybara.addEventListener('click', function(event) {
         sound.currentTime = 0;
         if (!muted) sound.play();
         const poo = document.createElement('img');
+
         poo.src = 'src/poo.png';
         poo.style.width = '2vw';
         poo.alt = 'poo';
         poo.style.zIndex = overlay; // allow poo to overlay on itself
         overlay += 1;
-        poo.style.left = `${clickX}px`;  // Set the left position based on clickX
+
         document.getElementById("poo").appendChild(poo);
+        poo.style.left = `${clickX}px`;  // Set the left position based on clickX
+        poo.style.top = `${clickY}px`
     }
 });
 // sleep, stand, movement, color change
@@ -140,14 +148,14 @@ function dragElement(elmnt) {
     }
 }
 
-/* to help with finding coordinates of div
+/* to help with finding coordinates of div*/
 const coordinatesDiv = document.getElementById('coordinates');
 
 document.addEventListener('mousemove', function(event) {
     const x = event.clientX;
     const y = event.clientY;
     coordinatesDiv.textContent = `Mouse X: ${x}, Mouse Y: ${y}`;
-});*/ 
+});
 // Get the modal
 var modal = document.getElementById("myModal");
 

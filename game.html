@@ -19,7 +19,7 @@
                         <li><img class="hat" id="wig" src="src/wig.png" alt="wig hat"></li>
                     </ul>
                 </div>
-                <div class="container">
+                <div id="container">
                     <img id="capybara" src="src/capybaraasleep.png" alt="Sleep" onclick="awake(this)">
                     <div id="poo"></div>
                 </div>
@@ -43,13 +43,17 @@
                     <li><u>0-9 keys</u>: change the color of your capybara!</li>
                     <li><u>z key</u>: let your capybara sleep again .zZ</li>
                     <li><u>< and > keys</u>: move left and right!</li>
+                    <li>Click on the picture icon to change the background picture!</li>
 
                 </ul>
             </div>
 
         </div>
+        <img class="button" id="bg" src="src/picicon.png" alt="background button" onclick="switchBg(this)"/>
         <img class="button" id="sound" src="src/unmute.png" alt="sound" onclick="mute(this)">
+        <div id="coordinatesDiv"></div>
     </div>
+
 </main>
 <footer></footer>
 <script src="game.js"></script>
