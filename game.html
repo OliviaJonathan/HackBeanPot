@@ -12,7 +12,6 @@
                 <h1>Capybara Game</h1>
                 <div id="hats">
                     <ul>
-
                         <li><img class="hat" id="floppy" src="src/floppyhat.png" alt="floppy hat"></li>
                         <li><img class="hat" id="orange" src="src/orange.png" alt="orange hat"></li>
                         <li><img class="hat" id="santa" src="src/santahat.png" alt="santa hat"></li>
@@ -26,8 +25,31 @@
             </div>
             <audio id="fart" src="src/fart.mp3"></audio>
             <h1 id="hint">(Click on Capybara to wake them up)</h1>
-            <img id="sound" src="src/unmute.png" alt="sound" onclick="mute(this)">
-        </main>
+
+    <div class="buttons">
+        <img class= "button" id="myBtn" src="src/book.png" alt="Book" />
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <ul>
+                    <li>Click on capybara to wake them up!</li>
+                    <li>Click on different parts of the Capybara to find a surprise sound!</li>
+                    <li><u>s key</u>: make them stand or sit</li>
+                    <li><u>0-9 keys</u>: change the color of your capybara!</li>
+                    <li><u>z key</u>: let your capybara sleep again .zZ</li>
+                    <li><u>< and > keys</u>: move left and right!</li>
+
+                </ul>
+            </div>
+
+        </div>
+        <img class="button" id="sound" src="src/unmute.png" alt="sound" onclick="mute(this)">
+    </div>
+</main>
+<footer></footer>
 <script src="game.js"></script>
 </body>
 </html>
