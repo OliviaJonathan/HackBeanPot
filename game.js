@@ -45,11 +45,11 @@ document.addEventListener('keydown', function(event) {
     } else if (event.key === 'ArrowLeft' && !sit && leftPosition > -300) {
         leftPosition -= 10;
         capybara.style.left = leftPosition + 'px';
-        capybara.style.transform = "scaleX(-1)";
+        capybara.style.transform = "scaleX(1)";
     } else if (event.key === 'ArrowRight' && !sit && leftPosition < 300) {
         leftPosition += 10;
         capybara.style.left = leftPosition + 'px';
-        capybara.style.transform = "scaleX(1)";
+        capybara.style.transform = "scaleX(-1)";
     } else if (/^[0-9]$/i.test(event.key)) {
         color = event.key * 36;
         capybara.style.filter = `hue-rotate(${color}deg)`;
