@@ -149,3 +149,7 @@ h2{
 #wig{
    z-index: 2;
 }
+#poo{
+   position: absolute;
+   z-index: 2;
+}

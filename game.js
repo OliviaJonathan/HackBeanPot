@@ -22,6 +22,8 @@ function awake() {
     document.getElementById("hint").innerHTML = "have fun!";
 }
 // fart!
+let
+    overlay=1;
 capybara.addEventListener('click', function(event) {
     const imageRect = capybara.getBoundingClientRect();
     const clickX = event.clientX - imageRect.left;
@@ -36,6 +38,14 @@ capybara.addEventListener('click', function(event) {
         clickY >= clickArea.y && clickY <= clickArea.y + clickArea.height) {
         sound.currentTime = 0;
         if (!muted) sound.play();
+        const poo = document.createElement('img');
+        poo.src = 'src/poo.png';
+        poo.style.width = '2vw';
+        poo.alt = 'poo';
+        poo.style.zIndex = overlay; // allow poo to overlay on itself
+        overlay += 1;
+        poo.style.left = `${clickX}px`;  // Set the left position based on clickX
+        document.getElementById("poo").appendChild(poo);
     }
 });
 // sleep, stand, movement, color change
