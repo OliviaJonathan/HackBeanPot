@@ -69,7 +69,6 @@ h2{
 .modal {
    display: none;
    position: fixed;
-   z-index: 1;
    left: 0;
    top: 0;
    width: 100%;
@@ -77,6 +76,7 @@ h2{
    overflow: auto;
    background-color: rgb(0,0,0);
    background-color: rgba(0,0,0,0.4);
+   z-index: 6;
 }
 
 /* Modal Content/Box */
@@ -90,6 +90,7 @@ h2{
    font-size: 2vw;
    font-weight: 200;
    border-radius: 2vw;
+   z-index: 6;
 }
 
 /* The Close Button */
@@ -148,13 +149,4 @@ h2{
 }
 #wig{
    z-index: 2;
-}
-button {
-   background: none;
-   color: inherit;
-   border: none;
-   padding: 0;
-   font: inherit;
-   cursor: pointer;
-   outline: inherit;
 }
