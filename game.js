@@ -133,10 +133,10 @@ function dragElement(elmnt) {
 
     function dragMouseDown(e) {
         if (elmnt.id === "wig" || elmnt.id === "frog") {
-            elmnt.style.width = "10vw";
+            elmnt.style.width = "7vw";
         }
         else if(elmnt.id === "lettuce" || elmnt.id === "chef"){
-            elmnt.style.width = "7vw";
+            elmnt.style.width = "6vw";
         }
         e = e || window.event;
         e.preventDefault();
