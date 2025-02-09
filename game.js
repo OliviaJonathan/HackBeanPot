@@ -64,32 +64,28 @@ capybara.addEventListener('click', function(){
 
 
 document.addEventListener('keydown', function(event) {
-    // Log the key that was pressed
-    console.log("Key pressed: " + event.key)
+    const capybaraImg = document.getElementById("capybara");
 
-    // if z is clicked, capybara goes to sleep
-    if(event.key === "z") {
-        document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybaraasleep.png");
-    }else if(event.key === "s") {
-        if(sit){
-            document.getElementById("capybara").src = capybara.src.replace("src/capybaraawake.png", "src/capybarastand.png");
-            sit = false;
-        }else{
-            document.getElementById("capybara").src = capybara.src.replace("src/capybarastand.png", "src/capybaraawake.png");
-            sit = true;
-        }
-    }else if(event.key === 'ArrowLeft' ){
-        if(sit === false && leftPosition > -300)
-        leftPosition -= 10; // Move 10 pixels to the left (adjust as needed)
-        capybara.style.left = leftPosition + 'px';
-    }else if(event.key === 'ArrowRight'){
-        if(sit === false && leftPosition < 300)
-        leftPosition += 10; // Move 10 pixels to the left (adjust as needed)
-        capybara.style.left = leftPosition + 'px';
-    }else if(/^[0-9]$/i.test(event.key)){
-        color = event.key * 36;
-        document.getElementById("capybara").style.filter =  `hue-rotate(${color}deg)`
+    if (event.key === "z") {
+        capybaraImg.src = capybara.src.replace("src/capybaraawake.png", "src/capybaraasleep.png");
     }
+    else if (event.key === "s") {
+        const newSrc = sit ? "src/capybarastand.png" : "src/capybaraawake.png";
+        capybaraImg.src = capybara.src.replace(sit ? "src/capybaraawake.png" : "src/capybarastand.png", newSrc);
+        sit = !sit;
+    }
+    else if (event.key === 'ArrowLeft' && !sit && leftPosition > -300) {
+        leftPosition -= 10;
+        capybara.style.left = leftPosition + 'px';
+    } else if (event.key === 'ArrowRight' && !sit && leftPosition < 300) {
+        leftPosition += 10;
+        capybara.style.left = leftPosition + 'px';
+    }
+    else if (/^[0-9]$/i.test(event.key)) {
+        color = event.key * 36;
+        capybaraImg.style.filter = `hue-rotate(${color}deg)`;
+    }
+
     
 
 });
