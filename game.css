@@ -107,7 +107,6 @@ h2{
    cursor: pointer;
 }
 
-
 #hats{
    position: absolute;
    display: flex;
@@ -117,10 +116,9 @@ h2{
    width: 5%;
    height: 35vh;
    border-radius: 2vw;
-   top: 19.5vw;
-   left: 17vw;
+
 }
-ul{
+#hats ul{
    height: 100%;
    list-style: none;
    margin: 0;
@@ -130,7 +128,7 @@ ul{
    flex-direction: column;
    justify-content: center;
 }
-li{
+#hats li{
    width: 100%;
    height: 100%;
    display: flex;
