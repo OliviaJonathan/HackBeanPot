@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
-
-html, body {
+html{
    height: 100%;
-   margin: 0;
-   padding: 0;
+   width: 100%
 }
 
-.game {
+.game{
    height: 100%;
    background-color: #86A59C;
    display: flex;
@@ -14,15 +12,13 @@ html, body {
    align-items: center;
    justify-content: center;
 }
-
-main {
+main{
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
 }
-
-.container {
+.container{
    height: 10vh;
    width: 30vw;
    display: flex;
@@ -31,10 +27,9 @@ main {
    padding: 15vh;
    background-color: #e1e0e0;
    border-radius: 2vw;
-   position: relative;
+   position: relative; /* position items relative within the container*/
 }
-
-h1 {
+h1{
    font-family: "Jersey 10", serif;
    letter-spacing: .2rem;
    color: #e1e0e0;
@@ -42,13 +37,14 @@ h1 {
    text-align: center;
    font-size: 4vw;
 }
-
-#sound {
+#bottom{
+   display: flex;
+   flex-direction: row;
+}
+#sound{
    width: 5%;
    height: 10%;
 }
-
-#capybara {
-   transition-delay: 0.5s;
-   position: relative;
+#capybara{
+   position: relative
 }
