@@ -93,13 +93,8 @@ document.addEventListener('keydown', function(event) {
         capybara.style.left = leftPosition + 'px';
     }
 
-    if(event.key === "c"){
-        if (color <= 360){
-            color += 30
-            console.log("Color: " + color)
-        }else{
-            color = 0
-        }
+    if(isNumber = /^[0-9]$/i.test(event.key)){
+        color = event.key * 36;
         document.getElementById("capybara").style.filter =  `hue-rotate(${color}deg)`
     }
     
