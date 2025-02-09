@@ -1,6 +1,7 @@
 const capybara = document.getElementById('capybara');
 const sound = document.getElementById('fart');
 const snd = new Audio("src/boom.mp3");
+const runSound = new Audio("src/run.mp3");
 let sleep = true;
 let sit = true;
 let leftPosition = 0;
@@ -51,11 +52,22 @@ document.addEventListener('keydown', function(event) {
         capybara.style.left = leftPosition + 'px';
         capybara.style.transform = "scaleX(1)";
         position = "Left";
+        if (!muted) {
+            runSound.playbackRate += 0.2;
+            runSound.play();
+            runSound.playbackRate -= 0.2;
+
+        }
     } else if (event.key === 'ArrowRight' && !sit && leftPosition < 300) {
         leftPosition += 10;
         capybara.style.left = leftPosition + 'px';
         capybara.style.transform = "scaleX(-1)";
         position = "Right";
+        if (!muted) {
+            runSound.playbackRate += 0.2;
+            runSound.play();
+            runSound.playbackRate -= 0.2;
+        }
     } else if (/^[0-9]$/i.test(event.key)) {
         color = event.key * 36;
         capybara.style.filter = `hue-rotate(${color}deg)`;
