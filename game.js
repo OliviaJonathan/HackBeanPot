@@ -72,7 +72,7 @@ document.addEventListener('keydown', function(event) {
             capybara.src = capybara.src.replace( "src/capybarawalkingleft(1).png","src/capybaraawake.png" );
         }
         sit = !sit;
-    } else if (event.key === 'ArrowLeft' && !sit && leftPosition > -300) {
+    } else if (event.key === 'ArrowLeft' && !sit && leftPosition > -25) {
         makeWalk();
         capybara.style.transform = "scaleX(1)";
         leftPosition -= 10;
@@ -84,7 +84,7 @@ document.addEventListener('keydown', function(event) {
             runSound.playbackRate -= 0.2;
 
         }
-    } else if (event.key === 'ArrowRight' && !sit && leftPosition < 300) {
+    } else if (event.key === 'ArrowRight' && !sit && leftPosition < 650) {
        makeWalk();
        leftPosition += 10;
         capybara.style.left = leftPosition + 'px';
