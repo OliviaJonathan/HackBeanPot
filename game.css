@@ -33,6 +33,7 @@ main{
    border-radius: 2vw;
    position: relative; /* position items relative within the container*/
    padding-bottom: 1vh;
+   transition: background-image 2s fade;
 }
 h1{
    color: #e1e0e0;
